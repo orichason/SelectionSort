@@ -9,7 +9,8 @@ namespace SelectionSort
         {
             bool isSorted = false;
 
-            int count = 0;
+            int count = 1;
+            int count2 = 0;
             int temp = 0;
 
             while (!isSorted)
@@ -17,16 +18,21 @@ namespace SelectionSort
 
                 for (int i = 0; i < NumberList.Count; i++)
                 {
-                    for (int y = count; y < NumberList.Count - count; y++)
+                    temp = NumberList[i];
+                    for (int y = count; y < NumberList.Count; y++)
                     {
-                        if (NumberList[i] < NumberList[y])
+                        if (NumberList[i] > NumberList[y])
                         {
                             temp = NumberList[y];
                         }
+                        count2 = y - 1;
                     }
+                    NumberList[count2] = NumberList[i];
                     NumberList[i] = temp;
+
                     count++;
                 }
+                isSorted = true;
 
             }
         }
