@@ -7,39 +7,46 @@ namespace SelectionSort
     {
         public static void SelectionSort(List<int> NumberList)
         {
-            bool isSorted = false;
+            //bool isSorted = false;
 
             int count = 1;
             int count2 = 0;
             int temp = 0;
+            bool swapMade = false;
 
-            while (!isSorted)
+            //while (!isSorted)
+            //{
+
+            for (int i = 0; i < NumberList.Count; i++)
             {
-
-                for (int i = 0; i < NumberList.Count; i++)
+                swapMade = false;
+                temp = NumberList[i];
+                for (int y = count; y < NumberList.Count; y++)
                 {
-                    temp = NumberList[i];
-                    for (int y = count; y < NumberList.Count; y++)
+                    if (NumberList[i] > NumberList[y] && NumberList[y] < temp)
                     {
-                        if (NumberList[i] > NumberList[y])
-                        {
-                            temp = NumberList[y];
-                        }
-                        count2 = y - 1;
+                        temp = NumberList[y];
+                        count2 = y;
+                        swapMade = true;
                     }
+                }
+                if (swapMade)
+                {
                     NumberList[count2] = NumberList[i];
                     NumberList[i] = temp;
-
-                    count++;
                 }
-                isSorted = true;
 
+                count++;
             }
+            //isSorted = true;
+
+            //}
         }
 
         static void Main(string[] args)
         {
-            List<int> UnsortedList = new List<int> { 43, 17, 5, 87, 29 };
+            Random gen = new Random();
+            List<int> UnsortedList = new List<int> (10){ gen.Next(1, 10; };
 
             SelectionSort(UnsortedList);
         }
