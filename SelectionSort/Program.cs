@@ -46,8 +46,12 @@ namespace SelectionSort
         static void Main(string[] args)
         {
             Random gen = new Random();
-            List<int> UnsortedList = new List<int> (10){ gen.Next(1, 10; };
+            List<int> UnsortedList = new List<int>();
 
+            for (int i = 0; i < 10; i++)
+            {
+                UnsortedList.Add(gen.Next(1, 100));
+            }
             SelectionSort(UnsortedList);
         }
     }
